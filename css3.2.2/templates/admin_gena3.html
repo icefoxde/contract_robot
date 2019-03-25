@@ -1,0 +1,130 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+   <div class="text">合同条款</div>
+    <div>
+        <div style="position: absolute;left:  273px;top: 142px;width: 900px;height: 5px;">
+            <img src="/static/image/u3721.png">
+        </div>
+        <div style="position: absolute;left: 240px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3733.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                    <span>1</span>
+                </p>
+            </div>
+        </div>
+        <div style="position: absolute;left: 530px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3733.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                    <span>2</span>
+                </p>
+            </div>
+        </div>
+        <div style="position: absolute;left: 830px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3723.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: white">
+                    <span>3</span>
+                </p>
+            </div>
+        </div>
+        <div style="position: absolute;left: 1122px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3733.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                    <span>4</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute;left:  224px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: lightslategray">
+        <p>合同类型选择</p>
+    </div>
+    <div style="position: absolute;left: 515px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: lightslategray">
+        <p>合同信息填写</p>
+    </div>
+    <div style="position: absolute;left: 806px;top: 190px;width: 150px;height: 50px;font-size: 13px;color: green">
+        <p>个性化条款生成</p>
+    </div>
+    <div style="position: absolute;left: 1106px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: lightslategray">
+        <p>合同一键生成</p>
+    </div>
+
+<div class="information">
+
+    <h4 style="width: 858px;font-size: 15px;border: 0.7px solid #c5c8d0ad; margin: 0px; background-color: #f5f5f5e6;
+    padding-bottom: 15px;
+    padding-top: 16px;
+    padding-left: 10px;
+    border-top: none;
+    border-left: none;
+    border-right: none;">个性化条款</h4>
+
+    <div>
+        <form method = "POST" action="/admin_gena4" enctype="multipart/form-data">
+            <input style="visibility: hidden" id="choose_template_name" name="choose_template_name" type="text" value={{ choose_template_name }}>
+            <input style="visibility: hidden" id="ys_1" name="ys_1" type="text" value={{str1[0]}}>
+            <input style="visibility: hidden" id="ys_2" name="ys_2" type="text" value={{str1[1]}}>
+            <input style="visibility: hidden" id="ys_3" name="ys_3" type="text" value={{str1[2]}}>
+            <input style="visibility: hidden" id="ys_4" name="ys_4" type="text" value={{str1[3]}}>
+            <input style="visibility: hidden" id="ys_5" name="ys_5" type="text" value={{str1[4]}}>
+            <input style="visibility: hidden" id="ys_6" name="ys_6" type="text" value={{str1[5]}}>
+            <input style="visibility: hidden" id="ys_7" name="ys_7" type="text" value={{str1[6]}}>
+            <input style="visibility: hidden" id="ys_8" name="ys_8" type="text" value={{str1[7]}}>
+            <input style="visibility: hidden" id="ys_9" name="ys_9" type="text" value={{str1[8]}}>
+            <input style="visibility: hidden" id="ys_10_1" name="ys_10_1" type="text" value={{str1[9][0]}}>
+            <input style="visibility: hidden" id="ys_10_2" name="ys_10_2" type="text" value={{str1[9][1]}}>
+            <input style="visibility: hidden" id="ys_11_1" name="ys_11_1" type="text" value={{str1[10][0]}}>
+            <input style="visibility: hidden" id="ys_11_2" name="ys_11_2" type="text" value={{str1[10][1]}}>
+            <input style="visibility: hidden" id="ys_12_1" name="ys_12_1" type="text" value={{str1[11][0]}}>
+            <input style="visibility: hidden" id="ys_12_2" name="ys_12_2" type="text" value={{str1[11][1]}}>
+            <input style="visibility: hidden" id="ys_13_1" name="ys_13_1" type="text" value={{str1[12][0]}}>
+            <input style="visibility: hidden" id="ys_13_2" name="ys_13_2" type="text" value={{str1[12][1]}}>
+            <input style="visibility: hidden" id="ys_14" name="ys_14" type="text" value={{str1[13]}}>
+            <input style="visibility: hidden" id="ys_15" name="ys_15" type="text" value={{str1[14]}}>
+            <input style="visibility: hidden" id="ys_16" name="ys_16" type="text" value={{str1[15]}}>
+            <input style="visibility: hidden" id="ys_17" name="ys_17" type="text" value={{str1[16]}}>
+            <input style="visibility: hidden" id="ys_18_1" name="ys_18_1" type="text" value={{str1[17][0]}}>
+            <input style="visibility: hidden" id="ys_18_2" name="ys_18_2" type="text" value={{str1[17][1]}}>
+            <button type="submit" class="btn btn-success" style="position: absolute;left: 550px;top: 530px;width: 190px;height: 35px;border-radius: 2px;">下一步，生成合同</button>
+        </form>
+</div>
+    </div>
+    <div>
+        <a href="/admin_gena2"><button type="button" style="position: absolute;left:400px;top: 800px;width: 170px;height: 35px;border: 0px;">上一步，填写合同信息</button></a>
+    </div>
+<style>
+     .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+  .information {
+            border: 0.7px solid #c5c8d0ad;
+    width: 859px;
+    position: absolute;
+    left: 210px;
+    top: 190px;
+    float: left;
+    /* padding-left: 60px; */
+    /* padding-top: 30px; */
+    padding-bottom: 40px;
+    height: 450px;
+    margin-top: 80px;
+    margin-left: 30px;
+    }
+
+    </style>
+{% endblock %}
+

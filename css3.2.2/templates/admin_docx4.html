@@ -1,0 +1,123 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+    <div class="text">合同流程表</div>
+    <div class="information">
+        <div class="information-choose">
+        <form method = "POST" action="/admin_docx" enctype="multipart/form-data">
+            <label class="checkbox-inline" style="visibility: hidden">
+                <input type="checkbox" id="cb1" name="cb" value="cd1" checked="checked">合同面签记录表
+            </label>
+            <label class="checkbox-inline" style="visibility: hidden">
+                <input type="checkbox" id="cb2" name="cb" value="cd2" checked="checked">合同审查申请表
+            </label>
+            <input type="text" id = "doc_date" name="doc_date" style="visibility: hidden" value="{{ doc_date }}">
+            <input type="text" id = "doc_loc" name="doc_loc" style="visibility: hidden" value="{{ doc_loc }}">
+            <input type="submit" style="position: absolute;left: 0px;top:0px;width:140px;height:40px;border: 0px" value="合同面签记录表"></input>
+        </form>
+        <form method = "POST" action="/admin_docx4" enctype="multipart/form-data">
+            <label class="checkbox-inline" style="visibility: hidden">
+                <input type="checkbox" id="cb1" name="cb" value="cd1" checked="checked">合同面签记录表
+            </label>
+            <label class="checkbox-inline" style="visibility: hidden">
+                <input type="checkbox" id="cb2" name="cb" value="cd2" checked="checked">合同审查申请表
+            </label>
+            <input type="text" id = "doc_date" name="doc_date" style="visibility: hidden" value="{{ doc_date }}">
+            <input type="text" id = "doc_loc" name="doc_loc" style="visibility: hidden" value="{{ doc_loc }}">
+            <input type="submit" style="position: absolute;left: 0px;top:52px;width:140px;height:40px;border: 0px" value="合同审查申请表"></input>
+        </form>
+        </div>
+
+
+
+    <div class="information-text">
+        <div>
+        <h4 style="position: absolute;left: 315px;top:60px;width:140px;height:40px;">合同审查申请表</h4>
+        </div>
+        <form method = "POST" action="/admin_docx2_save" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><p style="position: absolute;left:-58px;top: 150px;width: 260px;height: 24px;text-align: center;vertical-align: center">申报部门</p></td>
+                    <td><input type="text" id="dp_name" name="dp_name" placeholder="请输入申报部门" style="position: absolute;left:130px;top: 150px;width: 620px;height: 24px;text-align: left;vertical-align: center"></td>
+                </tr>
+                <tr>
+                    <td><p style="position: absolute;left:-58px;top: 200px;width: 260px;height: 24px;text-align: center;vertical-align: center">项目名称</p></td>
+                    <td><input type="text" id="pt_name" name="pt_name" placeholder="请输入项目名称" style="position: absolute;left:130px;top: 200px;width: 620px;height: 24px;text-align: left;vertical-align: center"></td>
+                </tr>
+                <tr>
+                    <td><p style="position: absolute;left:-58px;top: 250px;width: 260px;height: 24px;text-align: center;vertical-align: center">项目编号</p></td>
+                    <td><input type="text" id="pt_cont" name="pt_cont" placeholder="请输入项目编号" style="position: absolute;left:130px;top: 250px;width: 620px;height: 24px;text-align: left;vertical-align: center"></td>
+                </tr>
+                <tr>
+                    <td><p style="position: absolute;left:-58px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">合同序号</p></td>
+                    <td><p style="position: absolute;left:22px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">合同名称</p></td>
+                    <td><p style="position: absolute;left:122px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">合同文本提供方</p></td>
+                    <td><p style="position: absolute;left:232px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">是否格式文本</p></td>
+                    <td><p style="position: absolute;left:332px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">是否允许修改</p></td>
+                    <td><p style="position: absolute;left:442px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">合同其他方的意见</p></td>
+                    <td><p style="position: absolute;left:552px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">特别事项说明</p></td>
+                    <td><p style="position: absolute;left:620px;top: 300px;width: 260px;height: 24px;text-align: center;vertical-align: center">其他</p></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="xh" name="xh" placeholder="请输入序号" style="position: absolute;left:40px;top: 320px;width: 63px;height: 22px;text-align: center;font-size: 12px;"></td>
+                    <td><input type="text" id="mc" name="mc" placeholder="请输入合同名称" style="position: absolute;left:104px;top: 320px;width: 100px;height: 22px;text-align: center;    font-size: 12px;"></td>
+                    <td><input type="text" id="tgf" name="tgf" value="" style="position: absolute;left:206px;top: 320px;width: 110px;height: 22px;text-align: center;vertical-align: center"></td>
+                    <td><input type="text" id="wb" name="wb" value=" " style="position: absolute;left:318px;top: 320px;width: 100px;height: 22px;text-align: center;vertical-align: center"></td>
+                    <td><input type="text" id="xg" name="xg" value=" " style="position: absolute;left:419px;top: 320px;width: 100px;height: 22px;text-align: center;vertical-align: center"></td>
+                    <td><input type="text" id="yj" name="yj" value=" " style="position: absolute;left:521px;top: 320px;width: 110px;height: 22px;text-align: center;vertical-align: center"></td>
+                    <td><input type="text" id="sm" name="sm" value=" " style="position: absolute;left:632px;top: 320px;width: 95px;height: 22px;text-align: center;vertical-align: center"></td>
+                    <td><input type="text" id="qt" name="qt" value=" " style="position: absolute;left:730px;top: 320px;width: 40px;height: 22px;text-align: center;vertical-align: center"></td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-success" style="position: absolute;left:420px;top: 600px;width: 140px;height: 34px;border: 0px;border-radius: 2px;">下一步，导出文件</button>
+        </form>
+    </div>
+    <div>
+            <a href="/admin_index"><button type="button" style="position: absolute;left:200px;top: 600px;width: 140px;height: 34px;border: 0px;">上一步，合同审核</button></a>
+    </div>
+
+    </div>
+<style>
+      .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+
+    .information {
+        border: 0.7px solid #c5c8d0ad;
+        width: 950px;
+        position: absolute;
+        left: 210px;
+        top: 140px;
+        float: left;
+        height: 540px;
+    }
+
+    .information-choose {
+        position: absolute;
+        float: left;
+        top: 30px;
+    }
+
+    .information-text {
+        position: absolute;
+        float: left;
+        border: 0.7px solid #c5c8d0ad;
+        top: -1px;
+        left: 139px;
+        height: 540px;
+        width: 810px;
+        padding-left: 60px;
+    }
+    </style>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flask{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class = "container-fluid">
+        <div class="collapse navbar-collapse">
+        <a class = "navbar-brand" style="color: white"><span class="glyphicon glyphicon-home"></span> 华融科技</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/admin_index" style="color: white">系统首页</a></li>
+            <li><a href="/admin_mage" style="color: white">系统管理</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/admin_mage" style="color: white"><span class="glyphicon glyphicon glyphicon-user"></span> admin</a></li>
+            <li><a href="/admin_mage" style="color: white"><span class="glyphicon glyphicon-home"></span> </a></li>
+            <li><a href="/admin_mage" style="color: white"><span class="glyphicon glyphicon-align-justify"> </span></a></li>
+            <li><a href="/admin_mage" style="color: white"><span class="glyphicon glyphicon-bell"></span> </a></li>
+            <li><a href="/admin_mage" style="color: white"><span class="glyphicon glyphicon-blackboard"> </span></a></li>
+            <li><a href="/admin_mage" style="color: white"><span class="glyphicon glyphicon-off"> </span></a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    {% block page_content %}{% endblock %}
+    <div class="container">
+
+    <div class="span6">
+        <a href="/admin_mage" style="position: absolute;left: 150px;top:150px;width:80px;height:40px;"><span class="glyphicon glyphicon-cog"></span> 账户设置</a>
+    </div>
+    <div class="span6">
+        <a href="/admin_info" style="position: absolute;left: 150px;top:210px;width:80px;height:40px;"><span class="glyphicon glyphicon-info-sign"></span> 系统信息</a>
+    </div>
+    <div class="span6">
+        <a href="/admin_logo" style="position: absolute;left: 150px;top:270px;width:80px;height:40px;"><span class="glyphicon glyphicon-list-alt"></span> 登陆日志</a>
+    </div>
+    </div>
+{% endblock %}
+

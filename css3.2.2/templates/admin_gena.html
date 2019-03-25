@@ -1,0 +1,174 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+<div class="text">合同类型</div>
+<div>
+    <div style="position: absolute;left: 273px;top: 142px;width: 900px;height: 5px;">
+        <img src="/static/image/u3721.png">
+    </div>
+    <div style="position: absolute;left: 240px;top: 130px;width: 47px;height: 47px;">
+        <img src="/static/image/u3723.png">
+        <div>
+            <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: white">
+                <span>1</span>
+            </p>
+        </div>
+    </div>
+    <div style="position: absolute;left: 530px;top: 130px;width: 47px;height: 47px;">
+        <img src="/static/image/u3733.png">
+        <div>
+            <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                <span>2</span>
+            </p>
+        </div>
+    </div>
+    <div style="position: absolute;left: 830px;top: 130px;width: 47px;height: 47px;">
+        <img src="/static/image/u3733.png">
+        <div>
+            <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                <span>3</span>
+            </p>
+        </div>
+    </div>
+    <div style="position: absolute;left: 1122px;top: 130px;width: 47px;height: 47px;">
+        <img src="/static/image/u3733.png">
+        <div>
+            <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                <span>4</span>
+            </p>
+        </div>
+    </div>
+</div>
+<div style="position: absolute;left: 224px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: green">
+    <p>合同类型选择</p>
+</div>
+<div style="position: absolute;left: 515px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: lightslategray">
+    <p>合同信息填写</p>
+</div>
+<div style="position: absolute;left: 806px;top: 190px;width: 150px;height: 50px;font-size: 13px;color: lightslategray">
+    <p>个性化条款生成</p>
+</div>
+<div style="position: absolute;left: 1106px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: lightslategray">
+    <p>合同一键生成</p>
+</div>
+<div class="information">
+    <div style="    padding-bottom: 20px;">
+        <h4>生成类型</h4>
+    </div>
+    <div>
+        <form name="docx_type" method="POST" action="/admin_gena2" enctype="multipart/form-data">
+            <p style="float: left;margin-left: 50px">生成方式：</p>
+            <select id="xz_mb_al" name="xz_mb_al" style="margin-bottom: 20px;margin-left: 20px;height: 24px;">
+                <option value="t_1">合同模板</option>
+                <option value="t_2">合同案例</option>
+            </select>
+
+            <h4 style="padding-bottom: 20px;">合同选择：</h4>
+
+            <p style="float: left;margin-left: 50px;">合同分类：</p>
+            <select onchange="firstSelectChange(this.value)" id="xz_yjfl" name="xz_yjfl" class="selectpicker" data-live-search="true"
+                    style="width: 200px; height: 24px;">
+                <option value="1_0" disabled selected style="color: gainsboro;">一级分类</option>
+                <option value="1_1">收购处置业务合同</option>
+                <option value="1_2">收购重组业务合同</option>
+            </select>
+            <p style="    float: left;margin-left: 15px;">业务细分：</p>
+            <select onchange="selectChange(this.value)" id="xz_ejfl" name="xz_ejfl" class="selectpicker"
+                    data-live-search="true" style="width: 255px;height: 24px;">
+                <option value="2_0" disabled selected style="color: gainsboro;">请选择</option>
+                <option value="2_1">债权转让协议（我司对外转让）</option>
+                <option value="2_2">债权转让协议（打包收购）</option>
+                <option value="2_3">债权转让协议（双方签署）</option>
+            </select>
+
+            <p style="padding-top: 20px;margin-left: 50px">合同介绍：</p>
+            <table border="1" width="300px" height="150px"
+                   style="position: absolute;left: 230px;top: 250px;border: 0.7px solid #c5c8d0ad;">
+                <td><p id="tableContentId"></p></td>
+            </table>
+            <button type="submit" class="btn btn-success"
+                    style="position: absolute;left: 330px;top: 550px;border-radius: 2px;">下一步，填写合同信息
+            </button>
+        </form>
+    </div>
+
+
+</div>
+<script>
+    function firstSelectChange(value) {
+    var xz_ejfl = document.getElementById("xz_ejfl");
+    if (value == "1_1") {
+        xz_ejfl.length=1;
+        xz_ejfl.options.add(new Option('债权转让协议（我司对外转让）', '2_1'))
+        xz_ejfl.options.add(new Option('债权转让协议（打包收购）', '2_2'))
+        xz_ejfl.options.add(new Option('债权转让协议（双方签署）', '2_3'))
+    } else if (value == "1_2") {
+        xz_ejfl.length=1;
+        xz_ejfl.options.add(new Option('债权转让协议(应收账款债权)', '2_4'))
+    }
+
+}
+</script>
+
+
+
+<script>
+    function selectChange(value) {
+        console.log(value);
+        var tableContent = document.getElementById("tableContentId");
+        var content = tableContent.innerText;
+        if (value == "2_0") {
+            content = "";
+        } else if (value == "2_1") {
+            content = "适用于我司债权打包/单户对外转让项目。";
+        } else if (value == "2_2") {
+            content = "适用于收购银行打包债权。";
+        } else if(value == "2_3"){
+            content = "适用于收购银行单户债权资产项目";
+        } else{
+            content = "适用于债权转让协议(应收账款债权)";
+        }
+
+        tableContent.innerText = content;
+    }
+</script>
+
+
+
+
+<style>
+    .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+
+    .information {
+        border: 0.7px solid #c5c8d0ad;
+        width: 859px;
+        position: relative;
+        left: 210px;
+        top: 190px;
+        float: left;
+        padding-left: 100px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        height: 450px;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+</style>
+{% endblock %}
+
+
+

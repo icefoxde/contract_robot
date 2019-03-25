@@ -1,0 +1,115 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+    <div class="text">合同信息</div>
+    <div>
+        <div style="position: absolute;left:  273px;top: 142px;width: 900px;height: 5px;">
+            <img src="/static/image/u3721.png">
+        </div>
+        <div style="position: absolute;left: 240px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3733.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                    <span>1</span>
+                </p>
+            </div>
+        </div>
+        <div style="position: absolute;left: 530px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3723.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: white">
+                    <span>2</span>
+                </p>
+            </div>
+        </div>
+        <div style="position: absolute;left: 830px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3733.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                    <span>3</span>
+                </p>
+            </div>
+        </div>
+        <div style="position: absolute;left: 1122px;top: 130px;width: 47px;height: 47px;">
+            <img src="/static/image/u3733.png">
+            <div>
+                <p style="position: absolute;left: 15px;top: 3px;width: 50px;height: 50px;font-size: 30px;color: gainsboro">
+                    <span>4</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute;left: 224px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: lightslategray">
+        <p>合同类型选择</p>
+    </div>
+    <div style="position: absolute;left: 515px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: green">
+        <p>合同信息填写</p>
+    </div>
+    <div style="position: absolute;left: 806px;top: 190px;width: 150px;height: 50px;font-size: 13px;color: lightslategray">
+        <p>个性化条款生成</p>
+    </div>
+    <div style="position: absolute;left: 1106px;top: 190px;width: 100px;height: 50px;font-size: 13px;color: lightslategray">
+        <p>合同一键生成</p>
+    </div>
+
+    <!--<h4 style="position: absolute;left: 288px;top: 265px;width: 100px;height: 100px;">合同信息：</h4>-->
+
+    <div>
+        <table style="position: absolute;left: 300px;top: 262px;width: 120px; height: 700px; border: 0.6px solid #cfd1d7; text-align: center;" border="1">
+            <tr>
+                <th style="padding-left: 30px; background-color: whitesmoke;height: 38px">合同信息</th>
+            </tr>
+            {% for item in elements %}
+                <tr>
+                    <td style="position: relative;left: 2px;height: 38px">{{ item }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div >
+        <table style="position: absolute;left: 420px;top: 262px;width:550px;height: 38px;border: 0.6px solid #cfd1d7; text-align: center;">
+            <tr>
+                <th style="position: relative;padding-left: 250px; background-color: whitesmoke;height: 38px">内容</th>
+            </tr>
+        </table>
+        <form  method = "POST" action="/admin_gena3" enctype="multipart/form-data">
+             {% for item in csstip %}
+                <input type="text" id="ys_{{ item[0] }}" name="ys_{{ item[0] }}" style="position: absolute;left: 419px;top: {{ item[1] }}px;width: 550px;height: 38px">
+            {% endfor %}
+
+
+            <input style="visibility: hidden" id="choose_template_name" name="choose_template_name" type="text" value={{ choose_template_name }}>
+            <button type="submit" class="btn btn-success" style="position: absolute;left: 720px;top: 1180px;width: 190px;height: 35px;border: none;border-radius: 2px;">下一步，个性化条款生成</button>
+        </form>
+    </div>
+    <div>
+        <a href="/admin_gena"><button type="button" style="position: absolute;left:380px;top: 1180px;width: 170px;height: 35px;border: 0px;">上一步，选择合同类型</button></a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+<style>
+     .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+
+    </style>
+{% endblock %}
+

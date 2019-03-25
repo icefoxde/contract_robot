@@ -1,0 +1,228 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+<div class="text">形式化审核</div>
+<div class="check">
+    <p class="check-text">形式化审核结果</p>
+    <!--<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#filedoc"-->
+            <!--style="float: left;width: 75px;height: 28px;padding: 0px;font-size: 12px;">浏览-->
+    <!--</button>-->
+</div>
+<div id="filedoc" class="collapse" style="position: relative;left: 210px;top:130px;width:860px;height: 300px;border: 0.6px solid rgb(207, 209, 215);border-top: none;">
+    <iframe scrolling="true" srcdoc="{% for item in docx_para %}<p>{{ item.text}}<p>{% endfor %}" frameborder="0"
+            width="860px" height="280px">
+    </iframe>
+</div>
+
+<div class="information">
+    <p class="information-text">审核信息</p>
+    <table class="table table-hover table-bordered"
+           style="width:858px;height:40px;margin-bottom: 0px;">
+        <tr>
+            <th>审核条款</th>
+            <th>审核内容</th>
+            <th>是否一致</th>
+            <th>备注</th>
+        </tr>
+        <tr>
+            <td>第一条</td>
+            <td>{{ df['T_text'][1] }}</td>
+            <td>{{ df['Check_stata'][1] }}</td>
+            <td>{{ df['Othe'][1] }}</td>
+        </tr>
+        <tr>
+            <td>第二条</td>
+            <td>{{ df['T_text'][2] }}</td>
+            <td>{{ df['Check_stata'][2] }}</td>
+            <td>{{ df['Othe'][2] }}</td>
+        </tr>
+        <tr>
+            <td>第三条</td>
+            <td>{{ df['T_text'][3] }}</td>
+            <td>{{ df['Check_stata'][3] }}</td>
+            <td>{{ df['Othe'][3] }}</td>
+        </tr>
+        <tr>
+            <td>第四条</td>
+            <td>{{ df['T_text'][4] }}</td>
+            <td>{{ df['Check_stata'][4] }}</td>
+            <td>{{ df['Othe'][4] }}</td>
+        </tr>
+        <tr>
+            <td>第五条</td>
+            <td>{{ df['T_text'][5] }}</td>
+            <td>{{ df['Check_stata'][5] }}</td>
+            <td>{{ df['Othe'][5] }}</td>
+        </tr>
+        <tr>
+            <td>第六条</td>
+            <td>{{ df['T_text'][6] }}</td>
+            <td>{{ df['Check_stata'][6] }}</td>
+            <td>{{ df['Othe'][6] }}</td>
+        </tr>
+        <tr>
+            <td>第七条</td>
+            <td>{{ df['T_text'][7] }}</td>
+            <td>{{ df['Check_stata'][7] }}</td>
+            <td>{{ df['Othe'][7] }}</td>
+        </tr>
+        <tr>
+            <td>第八条</td>
+            <td>{{ df['T_text'][8] }}</td>
+            <td>{{ df['Check_stata'][8] }}</td>
+            <td>{{ df['Othe'][8] }}</td>
+        </tr>
+        <tr>
+            <td>第九条</td>
+            <td>{{ df['T_text'][9] }}</td>
+            <td>{{ df['Check_stata'][9] }}</td>
+            <td>{{ df['Othe'][9] }}</td>
+        </tr>
+        <tr>
+            <td>第十条</td>
+            <td>{{ df['T_text'][10] }}</td>
+            <td>{{ df['Check_stata'][10] }}</td>
+            <td>{{ df['Othe'][10] }}</td>
+        </tr>
+        <tr>
+            <td>第十一条</td>
+            <td>{{ df['T_text'][11] }}</td>
+            <td>{{ df['Check_stata'][11] }}</td>
+            <td>{{ df['Othe'][11] }}</td>
+        </tr>
+        <tr>
+            <td>第十二条</td>
+            <td>{{ df['T_text'][12] }}</td>
+            <td>{{ df['Check_stata'][12] }}</td>
+            <td>{{ df['Othe'][12] }}</td>
+        </tr>
+    </table>
+    <p style="position: absolute;left: 20px;width: 100px;top:550px;height: 50px">金额信息</p>
+    <table style="position:absolute;height: 56px;width:1000px ;top:600px ;left:20px;">
+        <tr>
+            <th>审核内容</th>
+            <th>审核规则</th>
+            <th>审核结果</th>
+        </tr>
+        {% for element in check_res_dict %}
+            {% if check_res_dict[element] != '' %}
+                {% if check_res_dict[element] == '1' %}
+                    <tr>
+                        <td>{{ element }}&nbsp;&nbsp;&nbsp;&nbsp;{{ dic[element][0] }}&nbsp;&nbsp;&nbsp;&nbsp;{{ dic[element][1] }}</td>
+                        <td></td>
+                        <td>大小写金额一致</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>{{ element }}&nbsp;&nbsp;&nbsp;&nbsp;{{ dic[element][0] }}&nbsp;&nbsp;&nbsp;&nbsp;{{ dic[element][1] }}</td>
+                        <td></td>
+                        <td>大小写金额不一致</td>
+                    </tr>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
+<div>
+    <form method="POST" action="/admin_examdocx_ys" enctype="multipart/form-data">
+
+        <input type="text" id="docx_bh" name="docx_bh" style="visibility: hidden" value="{{ dic['合同编号'] }}">
+        <input type="text" id="docx_syy" name="docx_syy" style="visibility: hidden" value="{{ dic['业务类型'] }}">
+        <input type="text" id="docx_xyrq" name="docx_xyrq" style="visibility: hidden" value="{{ dic['协议签订日期'] }}">
+        <input type="text" id="docx_xydd" name="docx_xydd" style="visibility: hidden" value="{{ dic['协议签订地点'] }}">
+        <input type="text" id="docx_zrf" name="docx_zrf" style="visibility: hidden" value="{{ dic['转让方'] }}">
+        <input type="text" id="docx_srf" name="docx_srf" style="visibility: hidden" value="{{ dic['受让方'] }}">
+        <input type="text" id="docx_zwf" name="docx_zwf" style="visibility: hidden" value="{{ dic['债务方'] }}">
+        <input type="text" id="docx_zrffzr" name="docx_zrffzr" style="visibility: hidden" value="{{ dic['转让方负责人'] }}">
+        <input type="text" id="docx_srffzr" name="docx_srffzr" style="visibility: hidden" value="{{ dic['受让方法定代表人'] }}">
+        <input type="text" id="docx_zwffzr" name="docx_zwffzr" style="visibility: hidden" value="{{ dic['债务方负责人'] }}">
+        <input type="text" id="docx_zrfzs" name="docx_zrfzs" style="visibility: hidden" value="{{ dic['转让方住所'] }}">
+        <input type="text" id="docx_srfzs" name="docx_srfzs" style="visibility: hidden" value="{{ dic['受让方住所'] }}">
+        <input type="text" id="docx_zwfzs" name="docx_zwfzs" style="visibility: hidden" value="{{ dic['债务方住所'] }}">
+        <input type="text" id="docx_zmbjye" name="docx_zmbjye" style="visibility: hidden" value="{{ dic['账面本金余额'] }}">
+        <input type="text" id="docx_lx" name="docx_lx" style="visibility: hidden" value="{{ dic['利息'] }}">
+        <input type="text" id="docx_qtzq" name="docx_qtzq" style="visibility: hidden" value="{{ dic['其他债权'] }}">
+        <input type="text" id="docx_ztzq" name="docx_ztzq" style="visibility: hidden" value="{{ dic['整体债权'] }}">
+        <input type="text" id="docx_zrjk" name="docx_zrjk" style="visibility: hidden" value="{{ dic['转让价款'] }}">
+        <input type="text" id="docx_zqje" name="docx_zqje" style="visibility: hidden" value="{{ dic['债权金额'] }}">
+        <input type="text" id="docx_wyj" name="docx_wyj" style="visibility: hidden" value="{{ dic['违约金'] }}">
+        <input type="text" id="docx_jzr" name="docx_jzr" style="visibility: hidden" value="{{ dic['基准日'] }}">
+        <input type="text" id="docx_bxze" name="docx_bxze" style="visibility: hidden" value="{{ dic['本息总额'] }}">
+        <input type="text" id="docx_bjye" name="docx_bjye" style="visibility: hidden" value="{{ dic['本金余额'] }}">
+        <input type="text" id="docx_qx" name="docx_qx" style="visibility: hidden" value="{{ dic['欠息'] }}">
+        <input type="text" id="docx_khyh" name="docx_khyh" style="visibility: hidden" value="{{ dic['转让方开户银行'] }}">
+        <input type="text" id="docx_hm" name="docx_hm" style="visibility: hidden" value="{{ dic['转让方户名'] }}">
+        <input type="text" id="docx_zh" name="docx_zh" style="visibility: hidden" value="{{ dic['转让方账户'] }}">
+        <input type="text" id="docx_jybzz" name="docx_jybzz" style="visibility: hidden" value="{{ dic['交易保证金详情'] }}">
+
+
+        <button type="submit" class="btn btn-success"
+                style="position: relative;left: -522px;top: 600px;width:170px;height:35px;margin-bottom:  50px;border-radius: 2px;border: none;">查看要素表
+        </button>
+    </form>
+</div>
+<div style="position: relative;left: 280px;top:280px;width:140px;height:40px;">
+
+</div>
+<style>
+    .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+
+    .check {
+        position: absolute;
+        left: 210px;
+        top: 131px;
+        width: 859px;
+        height: 50px;
+        float: left;
+        border: 0.7px solid #c5c8d0ad;
+        padding-top: 12px;
+        padding-right: 20px;
+        padding-left: 12px;
+        padding-bottom: 10px;
+        background-color: #c5c8d021;
+    }
+
+    .check-text {
+        float: left;
+        width: 710px;
+        height: 10px;
+        font-size: 13px;
+        padding-top: 3px;
+    }
+
+    .information {
+        border: 0.7px solid #c5c8d0ad;
+        width: 859px;
+        position: relative;
+        left: 210px;
+        top: 190px;
+        float: left;
+    }
+
+    .information-text {
+        float: left;
+        width: 858px;
+        padding-bottom: 12px;
+        padding-left: 14px;
+        padding-top: 12px;
+        font-size: 15px;
+        background-color: whitesmoke;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+</style>
+{% endblock %}
+

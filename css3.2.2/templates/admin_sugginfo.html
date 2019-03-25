@@ -1,0 +1,30 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+    <div class="text-center">
+        <h4>意见反馈列表</h4>
+    </div>
+    <div>
+            <table class="table table-hover table-bordered" style="position: absolute;left: 288px;top:150px;width:800px;height:40px;">
+            <tr>
+                <th>id</th>
+                <th>反馈人id</th>
+                <th>反馈内容</th>
+                <th>操作</th>
+            </tr>
+            {% for item in suggest_all %}
+                <form method = "POST" action="/admin_suggdel" enctype="multipart/form-data">
+                <tr>
+                    <td>{{ item.sugg_id }}</td>
+                    <td>{{ item.user_id}}</td>
+                    <td>{{ item.sugg_text | safe }}</td>
+                    <td><button type="submit">删除</button></td>
+                    <input type="text" id = "sugg_id" name = "sugg_id" style="visibility: hidden" value={{ item.sugg_id }}>
+                </tr>
+                </form>
+            {% endfor %}
+            </table>
+    </div>
+
+{% endblock %}
+

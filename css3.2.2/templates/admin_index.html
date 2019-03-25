@@ -1,0 +1,77 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+<div class="text">形式化审核</div>
+<form method="POST" action="/admin_exam" enctype="multipart/form-data">
+    <div class="upload">
+        <p class="upload-text">上传文件</p>
+        <input type="file" name="file">
+        <button type="submit" class="btn btn-success"
+                style=" width: 120px;height: 28px;float: left;font-size: 12px; padding-top: 5px; margin-bottom: 10px;">审核
+        </button>
+    </div>
+</form>
+<div style="position: absolute;left: 340px;top:220px;width:440px;height:42px;">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</div>
+<style>
+    .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+
+    .upload {
+        float: left;
+        position: absolute;
+        left: 215px;
+        top: 135px;
+        border: 0.7px solid #c5c8d0ad;
+        padding-top: 21px;
+        padding-right: 130px;
+        padding-left: 65px;
+        padding-bottom: 4px;
+        background-color: #f5f5f59c;
+    }
+
+    .upload-text {
+        float: left;
+        width: 100px;
+        height: 10px;
+        font-size: 13px;
+        padding-top: 3px;
+    }
+
+    .upload input[type="file"] {
+        width: 360px;
+        height: 28px;
+        float: left;
+        font-size: 13px;
+    }
+
+    .upload input[type="submit"] {
+        height: 31px;
+        width: 100px;
+        font-size: 13px;
+
+    }
+</style>
+{% endblock %}
+

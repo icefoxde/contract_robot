@@ -1,0 +1,130 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flask{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation"
+     style="border-radius: 0px;background-color: #464c5b;margin-bottom: 0px; border-color: #464242ed;border-top: none; border-left: none;border-right: none">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <a class="navbar-brand" style="color: white"><span class="glyphicon glyphicon-home"></span> 华融科技</a>
+            <ul class="nav navbar-nav">
+                <li><a href="/admin_index" style="color: white">系统首页</a></li>
+                <!--<li><a href="/admin_mage" style="color: white">系统管理</a></li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/admin_index" style="color: white"><span class="glyphicon glyphicon glyphicon-user"></span>
+                    admin</a></li>
+                <li><a href="/admin_index" style="color: white"><span class="glyphicon glyphicon-home"></span> </a></li>
+                <li><a href="/admin_index" style="color: white"><span class="glyphicon glyphicon-align-justify"> </span></a>
+                </li>
+                <li><a href="/admin_index" style="color: white"><span class="glyphicon glyphicon-bell"></span> </a></li>
+                <li><a href="/admin_index" style="color: white"><span
+                        class="glyphicon glyphicon-blackboard"> </span></a></li>
+                <li><a href="/admin_index" style="color: white"><span class="glyphicon glyphicon-off"> </span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% block page_content %}{% endblock %}
+<div class="container-line"></div>
+<div class="container-main">
+    <div class="span-title">
+        <a href="/admin_exam" class="text-title"><span
+                class="glyphicon glyphicon-briefcase"></span> 合同审核</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_exam" class="text-menu"><span
+                class="glyphicon glyphicon-check"></span> 形式审核</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_exam" class="text-menu"><span
+                class="glyphicon glyphicon-zoom-in"></span> 要素识别</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_exam" class="text-menu"><span
+                class="glyphicon glyphicon-list-alt"></span> 合同流程表</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_gena" class="text-title"><span
+                class="glyphicon glyphicon-modal-window"></span> 合同生成</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_gena" class="text-menu"><span
+                class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;合同类型</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_gena" class="text-menu"><span
+                class="glyphicon glyphicon-barcode"></span>&nbsp;&nbsp;合同信息</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_gena" class="text-menu"><span
+                class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;合同条款</a>
+    </div>
+    <div class="span-title">
+        <a href="/admin_sugg" class="text-title"><span
+                class="glyphicon glyphicon-comment"></span> 意见反馈</a>
+    </div>
+</div>
+
+<style>
+    .container-line {
+        position: absolute;
+        top: 50px;
+        width: 33px;
+        height: 1064px;
+        float: left;
+        background-color: #464c5b;
+        border: none;
+    }
+
+    .container-main {
+        position: absolute;
+        top: 51px;
+        left: 33px;
+        width: 136px;
+        float: left;
+        height: 1064px;
+        padding-left: 0px;
+        padding-right: 0px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        background-color: #f5f5f5c2;
+
+    }
+
+    .span-title {
+        padding-top: 11px;
+        padding-bottom: 10px;
+        border: 0.7px solid #b2a5a563;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .text-title {
+        width: 150px;
+        height: 40px;
+        font-size: 13px;
+        padding-bottom: 7px;
+        padding-top: 9px;
+        padding-left: 24px;
+        padding-right: 31px;
+        color: #606266e8;
+    }
+
+    .text-menu {
+        width: 150px;
+        height: 40px;
+        padding-bottom: 7px;
+        padding-top: 9px;
+        padding-left: 24px;
+        padding-right: 31px;
+        font-size: 11px;
+        color: #6f7277e0;
+    }
+</style>
+{% endblock %}

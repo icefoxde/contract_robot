@@ -1,0 +1,73 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+<div class="text">合同流程表</div>
+<div class="information">
+    <p class="information-text">合同流程表</p>
+    <p class="information-text2">合同流程表选择</p>
+    <form method="POST" action="/admin_docx" enctype="multipart/form-data">
+        <label class="checkbox-inline" style="float: left; padding-top: 18px; padding-right: 30px;">
+            <input type="checkbox" id="cb1" name="cb" value="cd1">合同面签记录表
+        </label>
+        <label class="checkbox-inline" style="padding-top: 18px;float: left;padding-right: 200px;">
+            <input type="checkbox" id="cb2" name="cb" value="cd2">合同审查申请表
+        </label>
+        <button type="submit" class="btn btn-success"
+                style="width: 100px;height: 30px;padding: 0px;margin-top: 13px;font-size: 13px;">确定
+        </button>
+        <input type="text" id="doc_date" name="doc_date" style="visibility: hidden" value="{{ dic[0] }}">
+        <input type="text" id="doc_loc" name="doc_loc" style="visibility: hidden" value="{{ dic[1] }}">
+    </form>
+</div>
+<style>
+    .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+
+    .information {
+        border: 0.7px solid #c5c8d0ad;
+        width: 859px;
+        position: relative;
+        left: 210px;
+        top: 80px;
+        float: left;
+        height: 106px;
+    }
+
+    .information-text {
+        float: left;
+        width: 858px;
+        padding-bottom: 12px;
+        padding-left: 9px;
+        padding-top: 12px;
+        font-size: 15px;
+        background-color: whitesmoke;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .information-text2 {
+        float: left;
+        padding-top: 18px;
+        padding-left: 10px;
+        padding-right: 50px;
+        padding-bottom: 10px;
+    }
+</style>
+{% endblock %}
+

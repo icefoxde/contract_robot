@@ -1,0 +1,204 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+    <div class="text">要素表识别</div>
+    <div class="information">
+        <p class="information-text">要素表</p>
+        <table class="table table-hover table-bordered" style="width: 859px;height: 40px;margin-bottom: 200px;">
+            <tr>
+                <th>要素</th>
+                <th>内容</th>
+                <th>要素</th>
+                <th>内容</th>
+            </tr>
+            <tr>
+                <td>合同编号</td>
+                <td>{{ dic[0] }}</td>
+                <td>业务类型</td>
+                <td>{{ dic[1] }}</td>
+            </tr>
+            <tr>
+                <td>协议签订日期</td>
+                <td>{{ dic[2] }}</td>
+                <td>协议签订地点</td>
+                <td>{{ dic[3] }}</td>
+            </tr>
+            <tr>
+                <td>转让方</td>
+                <td>{{ dic[4] }}</td>
+                <td>受让方</td>
+                <td>{{ dic[5] }}</td>
+            </tr>
+            <tr>
+                <td>债务方</td>
+                <td>{{ dic[6] }}</td>
+            </tr>
+            <tr>
+                <td>转让方负责人</td>
+                <td>{{ dic[7] }}</td>
+                <td>受让方负责人</td>
+                <td>{{ dic[8] }}</td>
+            </tr>
+            <tr>
+                <td>债务方负责人</td>
+                <td>{{ dic[9] }}</td>
+            </tr>
+            <tr>
+                <td>转让方住所</td>
+                <td>{{ dic[10] }}</td>
+                <td>受让方住所</td>
+                <td>{{ dic[11] }}</td>
+            </tr>
+            <tr>
+                <td>债务方住所</td>
+                <td>{{ dic[12] }}</td>
+            </tr>
+            <tr>
+                <td>账面本金余额</td>
+                {% if dic[13] != ['', ' '] %}
+                    <td>大写：{{ dic[13][0] }}<br/>小写：{{ dic[13][1] }}</td>
+                {% else %}
+                    <td>{{ dic[13][0] }}<br/>{{ dic[13][1] }}</td>
+                {% endif %}
+                <td>利息</td>
+                {% if dic[14] != ['', ' '] %}
+                    <td>大写：{{ dic[14][0] }}<br/>小写：{{ dic[14][1] }}</td>
+                {% else %}
+                    <td>{{ dic[14][0] }}<br/>{{ dic[14][1] }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>其他债权</td>
+                {% if dic[15] != ['', ' '] %}
+                    <td>大写：{{ dic[15][0] }}<br/>小写：{{ dic[15][1] }}</td>
+                {% else %}
+                    <td>{{ dic[15][0] }}<br/>{{ dic[15][1] }}</td>
+                {% endif %}
+                <td>整体债权</td>
+                {% if dic[16] != ['', ' '] %}
+                    <td>大写：{{ dic[16][0] }}<br/>小写：{{ dic[16][1] }}</td>
+                {% else %}
+                    <td>{{ dic[16][0] }}<br/>{{ dic[16][1] }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>转让价款</td>
+                {% if dic[17] != ['', ' '] %}
+                    <td>大写：{{ dic[17][0] }}<br/>小写：{{ dic[17][1] }}</td>
+                {% else %}
+                    <td>{{ dic[17][0] }}<br/>{{ dic[17][1] }}</td>
+                {% endif %}
+                <td>债权金额</td>
+                {% if dic[18] != ['', ' '] %}
+                    <td>大写：{{ dic[18][0] }}<br/>小写：{{ dic[18][1] }}</td>
+                {% else %}
+                    <td>{{ dic[18][0] }}<br/>{{ dic[18][1] }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>违约金</td>
+                {% if dic[19] != ['', ' '] %}
+                    <td>大写：{{ dic[19][0] }}<br/>小写：{{ dic[19][1] }}</td>
+                {% else %}
+                    <td>{{ dic[19][0] }}<br/>{{ dic[19][1] }}</td>
+                {% endif %}
+                <td>基准日_非标</td>
+                <td>{{ dic[20] }}</td>
+            </tr>
+            <tr>
+                <td>基准日_标准</td>
+                <td>{{ dic[20] }}</td>
+                <td>本息总额</td>
+                {% if dic[21] != ['', ' '] %}
+                    <td>大写：{{ dic[21][0] }}<br/>小写：{{ dic[21][1] }}</td>
+                {% else %}
+                    <td>{{ dic[21][0] }}<br/>{{ dic[21][1] }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>本金余额</td>
+                {% if dic[22] != ['', ' '] %}
+                    <td>大写：{{ dic[22][0] }}<br/>小写：{{ dic[22][1] }}</td>
+                {% else %}
+                    <td>{{ dic[22][0] }}<br/>{{ dic[22][1] }}</td>
+                {% endif %}
+                <td>欠息</td>
+                {% if dic[23] != ['', ' '] %}
+                    <td>大写：{{ dic[23][0] }}<br/>小写：{{ dic[23][1] }}</td>
+                {% else %}
+                    <td>{{ dic[23][0] }}<br/>{{ dic[23][1] }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>转让方开户银行</td>
+                <td>{{ dic[24] }}</td>
+                <td>转让方户名</td>
+                <td>{{ dic[25] }}</td>
+            </tr>
+            <tr>
+                <td>转让方账户</td>
+                <td>{{ dic[26] }}</td>
+            </tr>
+            <tr>
+                <td>交易保证金详情</td>
+                <td>{{ dic[27] }}</td>
+            </tr>
+
+
+        </table>
+    </div>
+    <div>
+        <form method = "POST" action="/admin_choosetable" enctype="multipart/form-data">
+            <input type="text" id = "doc_date" name="doc_date" style="visibility: hidden" value="{{ dic[2] }}">
+            <input type="text" id = "doc_loc" name="doc_loc" style="visibility: hidden" value="{{ dic[3] }}">
+            <button type="submit" class="btn btn-success" style="position: absolute;left:740px;top:1320px;width:190px;height:35px;border-radius: 2px;border: none;">下一步，生成合同流程表</button>
+        </form>
+    </div>
+    <div>
+        <a href="/admin_index"><button type="button" style="    position: absolute;
+    left: 400px;
+    top: 1320px;
+    width: 190px;
+    height: 35px;
+    border: 0px;
+    color:#676a6f">上一步，形式化审核</button></a>
+    </div>
+
+<style>
+     .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+     .information {
+        border: 0.7px solid #c5c8d0ad;
+        width: 859px;
+        position: relative;
+        left: 210px;
+        top: 80px;
+        float: left;
+    }
+
+    .information-text {
+        float: left;
+        width: 858px;
+        padding-bottom: 12px;
+        padding-left: 9px;
+        padding-top: 12px;
+        font-size: 15px;
+        background-color: whitesmoke;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    </style>
+{% endblock %}
+

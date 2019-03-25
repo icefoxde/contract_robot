@@ -1,0 +1,173 @@
+{% extends "admin_base.html" %}
+{% block title %}后台首页{% endblock %}
+{% block page_content %}
+<div class="text">合同流程表</div>
+<div class="information-text">
+        <div>
+            <h4 style="width: 170px;height: 20px;margin-left: 280px;margin-top: 60px;padding-bottom: 0px; margin-bottom: 0px;">
+                合同面签记录表</h4>
+            <h5 style="width: 170px; height: 40px;margin-left: 296px;">(我方人员填写)</h5>
+            <div style="width: 320px;height: 40px;font-size: 13px;margin-top: 20px">
+                本记录在<a style="color: red"> {{ doc_date }} </a>于[ <a style="color: red">{{ doc_loc }}</a> ]填写。
+            </div>
+        </div>
+        <div style="width:800px;height:40px;">
+            <form method="POST" action="/admin_docx1_save" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <th style="float: left"><a style="width: 80px;height: 25px;float: left; margin-left: 280px;">项目名称</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><input type="text" id="pt_name" name="pt_name" placeholder="请输入项目名称"
+                                   style=" width: 286px;height: 30px;text-align: left;vertical-align: center;float: left;margin-left: 154px; margin-bottom: 15px;font-size: 12px;font-weight: normal">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="height: 30px;float: left;margin-left: 80px;margin-top: 10px;">合同名称及编号</th>
+                        <th style="height: 30px;float: left; margin-left: 156px;margin-top: 10px;">份数</th>
+                        <!--<th style="height: 40px;float:left">备注</th>-->
+                    </tr>
+                    <tr>
+                        <td style="float: left"><input type="text" id="name_1" name="name_1" placeholder="请输入合同名称及编号"
+                                                       style="width: 260px;height: 24px;text-align: center;vertical-align: center;font-size: 12px;">
+                        </td>
+                        <td style="float: left"><input type="text" id="cont_1" name="cont_1" placeholder="请输入份数"
+                                                       style="width: 180px;height: 24px;text-align: center;vertical-align: center;font-size: 12px;">
+                        </td>
+                        <td><input type="text" id="othe_1" name="othe_1" placeholder="无"
+                                   style="width: 180px;height: 24px;text-align: center;vertical-align: center;font-size: 12px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="float: left"><input type="text" id="name_2" name="name_2"
+                                                       style="width: 260px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td style="float: left"><input type="text" id="cont_2" name="cont_2"
+                                                       style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td><input type="text" id="othe_2" name="othe_2"
+                                   style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="float: left"><input type="text" id="name_3" name="name_3"
+                                                       style="width: 260px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td style="float: left"><input type="text" id="cont_3" name="cont_3"
+                                                       style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td><input type="text" id="othe_3" name="othe_3"
+                                   style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="float: left"><input type="text" id="name_4" name="name_4"
+                                                       style="width: 260px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td style="float: left"><input type="text" id="cont_4" name="cont_4"
+                                                       style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td><input type="text" id="othe_4" name="othe_4"
+                                   style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="float: left"><input type="text" id="name_5" name="name_5"
+                                                       style="width: 260px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td style="float: left"><input type="text" id="cont_5" name="cont_5"
+                                                       style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td><input type="text" id="othe_5" name="othe_5"
+                                   style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="float: left"><input type="text" id="name_6" name="name_6"
+                                                       style="width: 260px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td style="float: left"><input type="text" id="cont_6" name="cont_6"
+                                                       style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td><input type="text" id="othe_6" name="othe_6"
+                                   style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="float: left"><input type="text" id="name_7" name="name_7"
+                                                       style="width: 260px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td style="float: left"><input type="text" id="cont_7" name="cont_7"
+                                                       style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                        <td><input type="text" id="othe_7" name="othe_7"
+                                   style="width: 180px;height: 24px;text-align: center;vertical-align: center">
+                        </td>
+                    </tr>
+                </table>
+                <p style="width: 616px;padding-top: 20px;padding-bottom: 20px;">
+                    面签见证人确认：上述合同由合同交易对手有权签字人当面签署，并以核对身份证原件及授权文件、企业营业执照原件及公章。</p>
+                <p style="width: 340px;height: 24px;float: left"> 面签见证人签名：</p>
+                <p style="width: 470px;height: 24px;"> 日期：</p>
+
+                <!--</table>-->
+                <button type="submit" class="btn btn-success"
+                        style="width: 140px;height: 34px;border: 0px;margin-top: 108px;border-radius: 2px; margin-left: 375px;">下一步，导出文件
+                </button>
+                <input type="text" id="doc_date" name="doc_date" style="visibility: hidden" value="{{ doc_date }}">
+                <input type="text" id="doc_loc" name="doc_loc" style="visibility: hidden" value="{{ doc_loc }}">
+            </form>
+        </div>
+        <div>
+            <a href="/admin_index">
+                <button type="button"
+                        style="    position: absolute; left: 35px;top: 700px;width: 140px;height: 34px;border: 0px;">
+                    上一步，合同审核
+                </button>
+            </a>
+        </div>
+        <div>
+            <p style="position: absolute; left: 575px;top: 271px;height: 40px;font-weight: bold;">备注</p>
+        </div>
+    </div>
+
+<style>
+    .text {
+        position: absolute;
+        left: 163px;
+        width: 1100px;
+        font-size: 11px;
+        color: #606266cf;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 20px;
+        border: 0.6px solid #cfd1d7;
+        border-top: none;
+        border-left: none;
+        border-right: none
+    }
+
+    .information {
+        border: 0.7px solid #c5c8d0ad;
+        width: 874px;
+        position: absolute;
+        left: 210px;
+        top: 140px;
+        float: left;
+        height: 640px;
+    }
+
+    .information-text {
+        position: absolute;
+        float: left;
+        border: 0.7px solid #c5c8d0ad;
+        top: 140px;
+        left: 220px;
+        height: 640px;
+        width: 735px;
+        padding-left: 60px;
+    }
+</style>
+{% endblock %}
+
